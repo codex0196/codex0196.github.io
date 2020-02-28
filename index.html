@@ -96,32 +96,17 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
-//         (function() {
-//           $(document).bind('keydown', function(e) {
-//             var written_content;
-//             if (e.keyCode === 83 && e.ctrlKey) {
-//               e.preventDefault();
-//               written_content = $('#written-content').val();
-//               return $.post('/', {
-//                 written_content: written_content
-//               }, function(data) {
-//                 return window.location.replace(data);
-//               });
-//             }
-//           });
-
-//           $(document).ready(function() {
-//             return $('#written-content').focus();
-//           });
-
-//         }).call(this);
         (function() {
           $(document).bind('keydown', function(e) {
             var written_content;
             if (e.keyCode === 83 && e.ctrlKey) {
               e.preventDefault();
               written_content = $('#written-content').val();
-              window.location.replace(written_content)
+              return $.post('/', {
+                written_content: written_content
+              }, function(data) {
+                return window.location.replace(data);
+              });
             }
           });
 
@@ -130,6 +115,7 @@
           });
 
         }).call(this);
+
     </script>
 </head>
 
